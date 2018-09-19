@@ -96,6 +96,7 @@ document.onkeydown = function (event) {
     }
     console.log ("hahahaha I'm getting this");
     
+
     // Showing the answer in underscores
     document.getElementById("answer").innerHTML = answerCountryArr.join(" ");
 
@@ -108,14 +109,12 @@ document.onkeydown = function (event) {
     //showing "game over" because you ran out of guesses
     if (count === 0) {
         alert("GAME OVER!!!😭 ");
-        display (randomCountry);
     };
 
     //Showing "winner" if the guess is correct
     var letterInRandomCountry = randomCountry.split("");
     if (letterInRandomCountry.toString() === answerCountryArr.toString()) {
         alert("Congratulations! YOU WON 👍 🤓 ");
-        display (randomCountry);
     };
 };
 console.log("goddman");
