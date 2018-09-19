@@ -36,8 +36,6 @@ var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr
 //create varibale count to count number of guesses
 var count = 15;
 
-
-
 // empty array to store future guesses
 var answerCountryArr = [];
 var wrongAnswerCountryArr = []
@@ -50,26 +48,29 @@ function startUp() {
     }
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
-    if (answerCountryArr.length >= 9){
-    count = count + 1;    
+    if (answerCountryArr.length >= 9) {
+        count = count + 1;
     }
-    else{
+    else {
         count = 15
     };
     document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
-    document.getElementById("wrongletter").innerHTML ="Wrong letters: ";
+    document.getElementById("wrongletter").innerHTML = "Wrong letters: ";
     console.log("omg")
 };
 
-//function using onkeyup 
+//function using onkeydown 
 document.onkeydown = function (event) {
     //Get the letter that was presed on the key board
     letter = event.key;
-    
-// checking if the letter matched
+    if (answerCountryArr.indexOf(letter) > -1 || wrongAnswerCountryArr.indexOf(letter) > -1) {
+        return;
+    }
+
+    // checking if the letter matched
     //create a boolean variable so that it can be toggled
     var letterInCountryName = false;
-    
+
     // run a for loop 
     for (var i = 0; i < randomCountry.length; i++) {
         // check if the pressed letter was found in the name of the random country
@@ -78,7 +79,7 @@ document.onkeydown = function (event) {
             letterInCountryName = true;
         }
     }
-    
+
     //if the letter exists
     if (letterInCountryName) {
         //
@@ -90,24 +91,26 @@ document.onkeydown = function (event) {
                 console.log(answerCountryArr);
             }
         }
-    }    
+    }
     //if the letter doesn't
     else {
         wrongAnswerCountryArr.push(letter);
         count--;
         console.log(wrongAnswerCountryArr);
     }
-    console.log ("hahahaha I'm getting this");
-    
+    console.log("hahahaha");
+
+
+
 
     // Showing the answer in underscores
     document.getElementById("answer").innerHTML = answerCountryArr.join(" ");
 
     // Showing Number of guesses remaining 
     document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
-    
+
     // Showing the wrong letter
-    document.getElementById("wrongletter").innerHTML ="Wrong letters: " + wrongAnswerCountryArr.join(" ");
+    document.getElementById("wrongletter").innerHTML = "Wrong letters: " + wrongAnswerCountryArr.join(" ");
 
     //showing "game over" because you ran out of guesses
     if (count === 0) {
@@ -120,5 +123,4 @@ document.onkeydown = function (event) {
         alert("🎊 CONGRATULATIONS! 🎉 YOU WON 👍 🤓 ");
     };
 };
-
 console.log("goddman");
