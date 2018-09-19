@@ -34,7 +34,7 @@ var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola"
 var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr.length)];
 
 //create varibale count to count number of guesses
-var count = 20;
+var count = 15;
 
 
 
@@ -54,7 +54,7 @@ function startUp() {
     count = count + 1;    
     }
     else{
-        count = 20
+        count = 15
     };
     document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
     document.getElementById("wrongletter").innerHTML ="Wrong letters: ";
