@@ -59,7 +59,7 @@ function startUp() {
 
 
 //function using onkeyup 
-document.onkeyup = function (event) {
+document.onkeydown = function (event) {
     //Get the letter that was presed on the key board
     letter = event.key;
     
