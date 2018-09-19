@@ -50,14 +50,12 @@ function startUp() {
     }
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
-    
     if (answerCountryArr.length > 9){
     count = count + 1;    
     }
     else{
         count = 20
     };
-    
     document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
     document.getElementById("wrongletter").innerHTML ="Wrong letters: ";
     console.log("omg")
