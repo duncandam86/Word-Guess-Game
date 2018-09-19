@@ -1,8 +1,8 @@
 // define array of country where the user will guess
-var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola", "antigua and barbuda",
+var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola", "antigua-and-barbuda",
     "argentina", "armenia", "australia", "austria", "azerbaijan", "bahamas", "bahrain", "bangladesh", "barbados",
     "belarus", "belgium", "belize", "benin", "bhutan", "bolivia", "bosnia-and-herzegovina", "botswana", "brazil",
-    "brunei", "bulgaria", "burkina faso", "burundi", "cambodia", "cameroon", "canada",
+    "brunei", "bulgaria", "burkina-faso", "burundi", "cambodia", "cameroon", "canada",
     "cape-verde", "central-african-republic", "chad", "chile", "china", "colombia", "comoros", "congo",
     "democratic-republic-of-congo", "costa-rica", "croatia", "cuba", "cyprus", "czech-republic",
     "denmark", "djibouti", "dominica", "dominican-republic",
@@ -10,21 +10,21 @@ var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola"
     "fiji", "finland", "france",
     "gabon", "gambia", "georgia", "germany", "ghana", "greece", "grenada", "guatemala", "guinea", "guinea-bissau",
     "guyana", "haiti", "honduras", "hungary", "iceland", "india", 'indonesia', 'iran', 'iraq',
-    'ireland', 'israel', 'italy', 'ivory coast', 'jamaica', 'japan', 'jordan',
+    'ireland', 'israel', 'italy', 'ivory-coast', 'jamaica', 'japan', 'jordan',
     'kazakhstan', 'kenya', 'kiribati',
     'north-korea', 'south-korea',
     'kosovo', 'kuwait', 'kyrgyzstan',
     'laos', 'latvia', 'lebanon', 'lesotho', 'liberia', 'libya', 'liechtenstein', 'lithuania', 'luxembourg',
     'macedonia', 'madagascar', 'malawi', 'malaysia', 'maldives', 'mali', 'malta', 'marshall-islands',
     'mauritania', 'mauritius', 'mexico', 'micronesia', 'moldova', 'monaco', 'mongolia', 'montenegro',
-    'morocco', 'mozambique', 'myanmar', 'namibia', 'nauru', 'nepal', 'netherlands', 'new zealand', 'nicaragua',
+    'morocco', 'mozambique', 'myanmar', 'namibia', 'nauru', 'nepal', 'netherlands', 'new-zealand', 'nicaragua',
     'niger', 'nigeria', 'norway', 'oman',
     'pakistan', 'palau', 'panama', 'papua-new-guinea', 'paraguay', 'peru', 'philippines', 'poland',
     'portugal', 'qatar', 'romania', 'russia', 'rwanda',
-    'st-kitts-and-nevis', 'st-lucia', 'st-vincent-and-the-grenadines', 'samoa',
+    'saint-kitts-and-nevis', 'saint-lucia', 'saint-vincent-and-the-grenadines', 'samoa',
     'san-marino', 'saotome-and-principe', 'saudi-arabia', 'senegal', 'serbia', 'seychelles',
     'sierra-leone', 'singapore', 'slovakia',
-    'slovenia', 'solomon islands', 'somalia', 'south-africa', 'south-sudan', 'spain', 'sri-lanka',
+    'slovenia', 'solomon-islands', 'somalia', 'south-africa', 'south-sudan', 'spain', 'sri-lanka',
     'sudan', 'suriname', 'swaziland', 'sweden', 'switzerland', 'syria', 'taiwan', 'tajikistan',
     'tanzania', 'thailand', 'togo', 'tonga', 'trinidad-and-tobago', 'tunisia', 'turkey', 'turkmenistan',
     'tuvalu', 'uganda', 'ukraine', 'united-arab-emirates', 'united-kingdom', 'united-states',
@@ -34,7 +34,7 @@ var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola"
 var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr.length)];
 
 //create varibale count to count number of guesses
-var count = 30;
+var count = 20;
 
 
 
@@ -51,7 +51,7 @@ function startUp() {
     count = count + 1;
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
-    document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
+    document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
     document.getElementById("wrongletter").innerHTML ="Wrong letters: ";
     console.log("omg")
 };
@@ -96,24 +96,26 @@ document.onkeydown = function (event) {
     }
     console.log ("hahahaha I'm getting this");
     
-    // Showing the answer in underscore
+    // Showing the answer in underscores
     document.getElementById("answer").innerHTML = answerCountryArr.join(" ");
 
     // Showing Number of guesses remaining 
-    document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
+    document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
     
     // Showing the wrong letter
     document.getElementById("wrongletter").innerHTML ="Wrong letters: " + wrongAnswerCountryArr.join(" ");
 
     //showing "game over" because you ran out of guesses
-    if (count < 1) {
-        document.write("<h1> GAME OVER!!!😭 </h1>");
+    if (count === 0) {
+        alert("GAME OVER!!!😭 ");
+        display (randomCountry);
     };
 
     //Showing "winner" if the guess is correct
     var letterInRandomCountry = randomCountry.split("");
     if (letterInRandomCountry.toString() === answerCountryArr.toString()) {
-        document.write("<h1> YOU WON!!! 👍 🤓 </h1>")
+        alert("Congratulations! YOU WON 👍 🤓 ");
+        display (randomCountry);
     };
 };
 console.log("goddman");
