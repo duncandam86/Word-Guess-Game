@@ -112,7 +112,7 @@ document.onkeydown = function (event) {
     //Showing "winner" if the guess is correct
     var letterInRandomCountry = randomCountry.split("");
     if (letterInRandomCountry.toString() === answerCountryArr.toString()) {
-        alert("Congratulations! YOU WON 👍 🤓 ");
+        alert("🎊 CONGRATULATIONS! 🎉 YOU WON 👍 🤓 ");
     };
 };
 console.log("goddman");
