@@ -56,8 +56,6 @@ function startUp() {
     console.log("omg")
 };
 
-
-
 //function using onkeyup 
 document.onkeydown = function (event) {
     //Get the letter that was presed on the key board
