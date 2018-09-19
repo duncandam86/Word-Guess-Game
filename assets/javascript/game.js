@@ -50,7 +50,7 @@ function startUp() {
     }
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
-    if (answerCountryArr.length > 9){
+    if (answerCountryArr.length >= 9){
     count = count + 1;    
     }
     else{
