@@ -1,34 +1,34 @@
 // define array of country where the user will guess
 var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola", "antigua and barbuda",
     "argentina", "armenia", "australia", "austria", "azerbaijan", "bahamas", "bahrain", "bangladesh", "barbados",
-    "belarus", "belgium", "belize", "benin", "bhutan", "bolivia", "bosnia and herzegovina", "botswana", "brazil",
+    "belarus", "belgium", "belize", "benin", "bhutan", "bolivia", "bosnia-and-herzegovina", "botswana", "brazil",
     "brunei", "bulgaria", "burkina faso", "burundi", "cambodia", "cameroon", "canada",
-    "cape verde", "central african republic", "chad", "chile", "china", "colombia", "comoros", "congo",
-    "democratic republic of congo", "costa rica", "croatia", "cuba", "cyprus", "czech republic",
-    "denmark", "djibouti", "dominica", "dominican republic",
-    "east timor", "ecuador", "egypt", "el salvador", "equatorial guinea", "eritrea", "estonia", "ethiopia",
+    "cape-verde", "central-african-republic", "chad", "chile", "china", "colombia", "comoros", "congo",
+    "democratic-republic-of-congo", "costa-rica", "croatia", "cuba", "cyprus", "czech-republic",
+    "denmark", "djibouti", "dominica", "dominican-republic",
+    "east-timor", "ecuador", "egypt", "el-salvador", "equatorial-guinea", "eritrea", "estonia", "ethiopia",
     "fiji", "finland", "france",
-    "gabon", "gambia", "georgia", "germany", "ghana", "greece", "grenada", "guatemala", "guinea", "guinea bissau",
+    "gabon", "gambia", "georgia", "germany", "ghana", "greece", "grenada", "guatemala", "guinea", "guinea-bissau",
     "guyana", "haiti", "honduras", "hungary", "iceland", "india", 'indonesia', 'iran', 'iraq',
     'ireland', 'israel', 'italy', 'ivory coast', 'jamaica', 'japan', 'jordan',
     'kazakhstan', 'kenya', 'kiribati',
-    'north korea', 'south korea',
+    'north-korea', 'south-korea',
     'kosovo', 'kuwait', 'kyrgyzstan',
     'laos', 'latvia', 'lebanon', 'lesotho', 'liberia', 'libya', 'liechtenstein', 'lithuania', 'luxembourg',
-    'macedonia', 'madagascar', 'malawi', 'malaysia', 'maldives', 'mali', 'malta', 'marshall islands',
+    'macedonia', 'madagascar', 'malawi', 'malaysia', 'maldives', 'mali', 'malta', 'marshall-islands',
     'mauritania', 'mauritius', 'mexico', 'micronesia', 'moldova', 'monaco', 'mongolia', 'montenegro',
     'morocco', 'mozambique', 'myanmar', 'namibia', 'nauru', 'nepal', 'netherlands', 'new zealand', 'nicaragua',
     'niger', 'nigeria', 'norway', 'oman',
-    'pakistan', 'palau', 'panama', 'papua new guinea', 'paraguay', 'peru', 'philippines', 'poland',
+    'pakistan', 'palau', 'panama', 'papua-new-guinea', 'paraguay', 'peru', 'philippines', 'poland',
     'portugal', 'qatar', 'romania', 'russia', 'rwanda',
-    'st kitts and nevis', 'st lucia', 'st vincent and the grenadines', 'samoa',
-    'san marino', 'sao tome and principe', 'saudi arabia', 'senegal', 'serbia', 'seychelles',
-    'sierra leone', 'singapore', 'slovakia',
-    'slovenia', 'solomon islands', 'somalia', 'south africa', 'south sudan', 'spain', 'sri lanka',
+    'st-kitts-and-nevis', 'st-lucia', 'st-vincent-and-the-grenadines', 'samoa',
+    'san-marino', 'saotome-and-principe', 'saudi-arabia', 'senegal', 'serbia', 'seychelles',
+    'sierra-leone', 'singapore', 'slovakia',
+    'slovenia', 'solomon islands', 'somalia', 'south-africa', 'south-sudan', 'spain', 'sri-lanka',
     'sudan', 'suriname', 'swaziland', 'sweden', 'switzerland', 'syria', 'taiwan', 'tajikistan',
-    'tanzania', 'thailand', 'togo', 'tonga', 'trinidad and tobago', 'tunisia', 'turkey', 'turkmenistan',
-    'tuvalu', 'uganda', 'ukraine', 'united arab emirates', 'united kingdom', 'united states',
-    'uruguay', 'uzbekistan', 'vanuatu', 'vatican city', 'venezuela', 'vietnam', 'yemen', 'zambia', 'zimbabwe'];
+    'tanzania', 'thailand', 'togo', 'tonga', 'trinidad-and-tobago', 'tunisia', 'turkey', 'turkmenistan',
+    'tuvalu', 'uganda', 'ukraine', 'united-arab-emirates', 'united-kingdom', 'united-states',
+    'uruguay', 'uzbekistan', 'vanuatu', 'vatican-city', 'venezuela', 'vietnam', 'yemen', 'zambia', 'zimbabwe'];
 
 // randomly choose a country from the country array list 
 var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr.length)];
@@ -36,11 +36,11 @@ var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr
 //create varibale count to count number of guesses
 var count = 30;
 
-//empty array to store letter
-var answerLetter = []
+
 
 // empty array to store future guesses
 var answerCountryArr = [];
+var wrongAnswerCountryArr = []
 
 // fill the answer array with empty under scores
 // number of underscore should equal the number of letter from random country word
@@ -48,8 +48,10 @@ function startUp() {
     for (var i = 0; i < randomCountry.length; i++) {
         answerCountryArr[i] = "_";
     }
+    count = count + 1;
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
+    document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
     console.log("oi gioi oi")
 };
 
@@ -59,44 +61,57 @@ function startUp() {
 document.onkeyup = function (event) {
     //Get the letter that was presed on the key board
     letter = event.key;
-    // Make sure that a guess is made
-    if (letter.length > 0) {
+    
+    // checking if the letter matched
+    //create a boolean variable so that it can be toggled
+    var letterInCountryName = false;
+    
+    // run a for loop 
+    for (var i = 0; i < randomCountry.length; i++) {
+        // check if the pressed letter was found in the name of the random country
+        if (randomCountry[i] === letter) {
+            // the value of boolean toggled
+            letterInCountryName = true;
+        }
+    }
+    
+    //if the letter exists
+    if (letterInCountryName) {
         //
-        for (var i = 0; i < randomCountry.length; i++) {
+        for (var j = 0; j < randomCountry.length; j++) {
             // if the randomCountry contains the letter that was typed in
-            if (randomCountry[i] === letter) {
+            if (randomCountry[j] === letter) {
                 //put the letter in the underscore
-                answerCountryArr[i] = letter;
+                answerCountryArr[j] = letter;
+                console.log(answerCountryArr);
             }
         }
-    };
+    }    
+    //if the letter doesn't
+    else {
+        wrongAnswerCountryArr.push(letter);
+        count--;
+    }
+    console.log ("hahahaha I'm getting this");
+    
     // Showing the answer in underscore
     document.getElementById("answer").innerHTML = answerCountryArr.join(" ");
 
-    //counting guesses
-    if (randomCountry[i] === letter) {
-        count--;
-    }
-    if (randomCountry[i] !== letter) {
-        count--;
-    }
-    if (randomCountry[i] === letter && answerCountryArr[i] === "_a") {
-        count = count + 0;
-    }
-
     // Showing Number of guesses remaining 
-    document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;   
-    //showing the letter was chosen
-    document.getElementById("chosenletter").innerHTML = letter;  
-    //showing "game over" because you ran out of guesses
+    document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
     
+    // Showing the wrong letter
+    document.getElementById("wrongletter").innerHTML = wrongAnswerCountryArr.join(" ");
+    
+    //showing "game over" because you ran out of guesses
     if (count < 1) {
         document.write("<h1> GAME OVER!!!😭 </h1>");
-    };s
- };   
+    };
 
-    
-
-
-
+    //Showing "winner" if the guess is correct
+    var letterInRandomCountry = randomCountry.split("");
+    if (letterInRandomCountry.toString() === answerCountryArr.toString()) {
+        document.write("<h1> YOU WON!!! 👍 🤓 </h1>")
+    };
+};
 console.log("goddman");
