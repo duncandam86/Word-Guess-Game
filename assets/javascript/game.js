@@ -52,7 +52,8 @@ function startUp() {
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
     document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
-    console.log("oi gioi oi")
+    document.getElementById("wrongletter").innerHTML ="Wrong letters: ";
+    console.log("omg")
 };
 
 
@@ -62,7 +63,7 @@ document.onkeyup = function (event) {
     //Get the letter that was presed on the key board
     letter = event.key;
     
-    // checking if the letter matched
+// checking if the letter matched
     //create a boolean variable so that it can be toggled
     var letterInCountryName = false;
     
@@ -91,6 +92,7 @@ document.onkeyup = function (event) {
     else {
         wrongAnswerCountryArr.push(letter);
         count--;
+        console.log(wrongAnswerCountryArr);
     }
     console.log ("hahahaha I'm getting this");
     
@@ -101,7 +103,7 @@ document.onkeyup = function (event) {
     document.getElementById("counter").innerHTML = "No of Guesses Remaining : " + count;
     
     // Showing the wrong letter
-    document.getElementById("wrongletter").innerHTML = wrongAnswerCountryArr.join(" ");
+    document.getElementById("wrongletter").innerHTML ="Wrong letters: " + wrongAnswerCountryArr.join(" ");
     
     //showing "game over" because you ran out of guesses
     if (count < 1) {

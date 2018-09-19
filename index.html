@@ -13,13 +13,21 @@
 </head>
 
 <body onload="startUp()">
-    <div class="container text-center">
-        <h1 class="jumbotron text-primary">HANGMAN GAME</h1>
-        <h2 class="text-danger">Which country?</h2>
-        <h5 class="text-warning">Note: some  country's name includes hyphen (-), please choose (-) as your first choice</h5>
+    <div class="container">
+        <h1 class="jumbotron text-primary text-center">HANGMAN GAME - INTERNATIONAL EDITION</h1>
+        <h3 class="text-danger text-center">Instructions:</h3>
+        <h5 class="text-danger text-justify">1. Becasue some countries's names include hyphen (-), please choose (-) as
+            your first
+            choice</h5>
+        <h5 class="text-danger text-justify">2. Correct guesses do not reduce total number of allowed guesses </h5>
+        <h5 class="text-danger text-justify">3. Wrong guesses reduce total number of allowed guesses </h5>
+
+        <h5 class="text-danger text-justify">4. You got 31 guesses! Good luck 🏆</h5>
+
     </div>
     <br><br>
     <div class="container">
+        <h2 class="text-center">Which Country?</h2>
         <div class="row">
             <div class="col-md-6">
                 <img href="#">
@@ -28,10 +36,10 @@
                 <p id="letter"></p>
             </div>
         </div>
-            <p class="text-center text-success" id="answer"></p>
-            <p class="text-center text-success" id="counter"> </p>
-            <p class="text-center text-success" id="chosenletter"></p>
-            <p class="text-center text-success" id="wrongletter"></p>
+        <p class="text-center text-success" id="answer"></p>
+        <p class="text-center text-success" id="counter"> </p>
+        <p class="text-center text-success" id="chosenletter"></p>
+        <p class="text-center text-danger" id="wrongletter"></p>
 
 </body>
 
