@@ -104,7 +104,7 @@ document.onkeydown = function (event) {
     
     // Showing the wrong letter
     document.getElementById("wrongletter").innerHTML ="Wrong letters: " + wrongAnswerCountryArr.join(" ");
-    
+
     //showing "game over" because you ran out of guesses
     if (count < 1) {
         document.write("<h1> GAME OVER!!!😭 </h1>");
