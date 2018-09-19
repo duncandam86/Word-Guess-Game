@@ -120,4 +120,11 @@ document.onkeydown = function (event) {
         alert("🎊 CONGRATULATIONS! 🎉 YOU WON 👍 🤓 ");
     };
 };
+
+document.getElementById("openKeyboard").addEventListener('click', function(){
+    var inputElement = document.getElementById("hiddenInput");
+    inputElement.style.visibility = 'visible'; //unhide the input
+    inputElement.focus();//focus on it so keyboard will show
+    inputElement.style.visibility="hidden";// hide keyboard again
+})
 console.log("goddman");
