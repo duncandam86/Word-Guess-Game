@@ -34,9 +34,9 @@ var randomCountryArr = ["afghanistan", "albania", "algeria", "andorra", "angola"
 var randomCountry = randomCountryArr[Math.floor(Math.random() * randomCountryArr.length)];
 
 //create varibale count to count number of guesses
-var count = 15;
+var count;
 
-// empty array to store future guesses
+// empty array to store future guesses/letters
 var answerCountryArr = [];
 var wrongAnswerCountryArr = []
 
@@ -49,20 +49,27 @@ function startUp() {
     var country = answerCountryArr.join(" ");
     document.getElementById("answer").innerHTML = country;
     if (answerCountryArr.length >= 9) {
-        count = count + 1;
+        count = 16;
     }
     else {
         count = 15
     };
     document.getElementById("counter").innerHTML = "Number of Guesses Remaining : " + count;
     document.getElementById("wrongletter").innerHTML = "Wrong letters: ";
-    console.log("omg")
+    //box to prompt keyboard in smartphone
+    var textbox = document.getElementById('my-input');
+    textbox.select();
+    console.log("omg");
 };
 
 //function using onkeydown 
 document.onkeydown = function (event) {
     //Get the letter that was presed on the key board
     letter = event.key;
+    //prevent letter to be uppercase
+    letter = letter.toLowerCase();
+
+    //prevent the same input to be input twice - using indexOf through both arrays that store letters
     if (answerCountryArr.indexOf(letter) > -1 || wrongAnswerCountryArr.indexOf(letter) > -1) {
         return;
     }
