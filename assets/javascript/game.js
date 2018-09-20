@@ -68,7 +68,13 @@ document.onkeydown = function (event) {
     letter = event.key;
     //prevent letter to be uppercase
     letter = letter.toLowerCase();
-
+    //prevent number as input
+    if (letter === "0" || letter==="1" || letter==="2" || letter==="3"
+    || letter==="4" || letter==="5"|| letter==="6"|| letter==="7"
+    || letter==="8"|| letter==="9"){
+        return;
+    }
+    
     //prevent the same input to be input twice - using indexOf through both arrays that store letters
     if (answerCountryArr.indexOf(letter) > -1 || wrongAnswerCountryArr.indexOf(letter) > -1) {
         return;
