@@ -59,7 +59,7 @@ function startUp() {
     //box to prompt keyboard in smartphone
     var textbox = document.getElementById('my-input');
     textbox.select();
-    console.log("omg");
+    console.log(textbox);
 };
 
 //function using onkeydown 
@@ -78,23 +78,24 @@ document.onkeydown = function (event) {
     //prevent the same input to be input twice - using indexOf through both arrays that store letters
     if (answerCountryArr.indexOf(letter) > -1 || wrongAnswerCountryArr.indexOf(letter) > -1) {
         return;
+        console.log(letter);
     }
 
     // checking if the letter matched
     //create a boolean variable so that it can be toggled
-    var letterInCountryName = false;
+    var isletterInCountryName = false;
 
     // run a for loop 
     for (var i = 0; i < randomCountry.length; i++) {
         // check if the pressed letter was found in the name of the random country
         if (randomCountry[i] === letter) {
             // the value of boolean toggled
-            letterInCountryName = true;
+            isletterInCountryName = true;
         }
     }
 
     //if the letter exists
-    if (letterInCountryName) {
+    if (isletterInCountryName) {
         //
         for (var j = 0; j < randomCountry.length; j++) {
             // if the randomCountry contains the letter that was typed in
