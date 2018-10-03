@@ -114,9 +114,6 @@ document.onkeydown = function (event) {
     }
     console.log("hahahaha");
 
-
-
-
     // Showing the answer in underscores
     document.getElementById("answer").innerHTML = answerCountryArr.join(" ");
 
